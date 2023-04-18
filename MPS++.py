@@ -87,7 +87,7 @@ def searching_sigma(epsilon, delta,sensitivity, num_provider):
 
 
 
-def compare_hyperloglog_and_loglog(num_elements, provider_data_num, distribution,epsilon,delta, num_trials=1,
+def expriment_MPS_plus(num_elements, provider_data_num, distribution,epsilon,delta, num_trials=1,
                                     m_bit=10, experiment_number=1,  num_provider=2):
 
     com_column = []
@@ -252,4 +252,4 @@ if __name__ == "__main__":
     time_consuming = []
     experiment_number = 'acc1_0'
     num_element_sample = pow(10, 5)
-    compare_hyperloglog_and_loglog(num_element_sample, int(num_element_sample * proportion), distribution,epsilon,delta,num_trials,m_bit, experiment_number,  num_provider=num_provider)
+    expriment_MPS_plus(num_element_sample, int(num_element_sample * proportion), distribution,epsilon,delta,num_trials,m_bit, experiment_number,  num_provider=num_provider)
