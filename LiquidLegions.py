@@ -76,7 +76,7 @@ def frequency_estimation_noise(count_array, decision_array, noise_array):
     return frequency_array,
 
 
-def experiment_conducting(num_elements, provider_data_num,distribution,epsilon,delta,num_trials=10,  experiment_number = 1,  num_provider = 2):
+def experiment_LiquidLegions(num_elements, provider_data_num,distribution,epsilon,delta,num_trials=10,  experiment_number = 1,  num_provider = 2):
     com_column = []
     max_error_all = []
     shuffle_distance_all = []
@@ -181,6 +181,6 @@ if __name__=="__main__":
     epsilon = 0.1
     delta = pow(10,-12)
     num_element_sample = pow(10,5)
-    experiment_conducting(num_element_sample,  int(num_element_sample * proportion),distribution,epsilon,delta,  num_trials,  experiment_number, num_provider=num_provider)
+    experiment_LiquidLegions(num_element_sample,  int(num_element_sample * proportion),distribution,epsilon,delta,  num_trials,  experiment_number, num_provider=num_provider)
 
 
