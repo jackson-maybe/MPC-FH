@@ -12,10 +12,10 @@ In addition, we measure the running time and communication overload of our proto
 | MPC-FM(MPS++)      | 4M integer arrays     |1            | Malicious          |
 | MPC-LiquidLegions  | 3 integer arrays      |2            | Honest but curious |
 ## Accuracy Experiments
-Run `pip install -r requirements.txt` to download required packages.
+1. Run `pip install -r requirements.txt` to download required packages.
 
-Then, if you want to test the accuracy of MPC-FM (using MPS sketch), please run `python python MPS.py`
+2. If you want to test the accuracy of MPC-FM (using MPS sketch), please run `python python MPS.py`
 
-if you want to test the accuracy of MPC-FM (using MPS++ sketch), please run `python python MPS++.py`
+   If you want to test the accuracy of MPC-FM (using MPS++ sketch), please run `python python MPS++.py`
 
-if you want to test the accuracy of MPC-LiquidLegions, please run python `python LiquidLegions.py`
+   If you want to test the accuracy of MPC-LiquidLegions, please run python `python LiquidLegions.py`
