@@ -42,5 +42,7 @@ Scripts/setup-online.sh <nCPs>
    
 4. Run our MPC-FM protocol and see the results.
 
-```Scripts/run-online.sh MPC_FM```
+```
+Scripts/run-online.sh MPC_FM
+```
    
