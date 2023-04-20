@@ -15,7 +15,9 @@ In addition, we measure the running time and communication overload of our proto
 Run "pip install -r requirements.txt' to download required packages.
 
 Then, if you want to test the accuracy of MPC-FM (using MPS sketch), please run 
-'''python python MPS.py'''
+'''
+python python MPS.py
+'''
 
 if you want to test the accuracy of MPC-FM (using MPS++ sketch), please run 'python python MPS++.py'
 
