@@ -30,6 +30,7 @@ sh protocol_compile.sh
 ```
 
    Please make sure that CMake's version is at least 3.12
+   
 3. Compile our MPC-FM protocol and set the number of computation providers (CPs).
 
 ```
@@ -38,6 +39,7 @@ Scripts/setup-online.sh <nCPs>
 ```
 
    Besides, we should also set the number of CPs in the `Scripts/run-common.sh`.
+   
 4. Run our MPC-FM protocol and see the results.
 
 ```Scripts/run-online.sh MPC_FM```
