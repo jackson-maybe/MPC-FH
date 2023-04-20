@@ -1,0 +1,424 @@
+sec_a_list = Array(64, sint)
+@for_range_opt(63)
+def _(i):
+    sec_a_list[i] = sint(0)
+sec_a_list[63] = sint(1)
+sec_a = sint(2**63)
+poly_array= Array(33, cint)
+poly_array[0] = 8683317618811886495518194401280000000
+poly_array[1] =- 26821016054519132684855082693427200000
+poly_array[2] =38751861862897122023180003943383040000
+poly_array[3] = - 34983373179008107515660421219614720000
+poly_array[4] = 22228383468492446713973149456834560000
+poly_array[5] =- 10613388595807930627442811839920865280
+poly_array[6] = 3968885352786383344505456407850459136
+poly_array[7] = - 1195879925385636635377375121659760640
+poly_array[8] = 296374891296904005669419668637880576
+poly_array[9] =  - 61351572645641491329067236188467200
+poly_array[10] = 10734357120392042986619237308118784
+poly_array[11] = - 1602073661641011372418313891786240
+poly_array[12] = 205426488940753365374619960667744
+poly_array[13] = - 22756636086035686441334219564800
+poly_array[14] =  2187086337356128715667289369040
+poly_array[15] = - 182918467661592497582020669200
+poly_array[16] = 13340173206548155385625683265
+poly_array[17] = - 849253038225746417927983200
+poly_array[18] = 47199337942822326752828280
+poly_array[19] = - 2288203146186499691268000
+poly_array[20] = 96585005305960982077980
+poly_array[21] = - 3539080500154537010400
+poly_array[22] =112094205033562376040
+poly_array[23] = - 3051107510676388800
+poly_array[24] =+ 70816686417360390
+poly_array[25] =- 1387179753042720
+poly_array[26] = 22617883658184
+poly_array[27] = - 301245406560
+poly_array[28] = 3191770044
+poly_array[29] =  - 25866400
+poly_array[30] =150536
+poly_array[31] = - 560
+poly_array[32] = 1
+
+middle = sint(0)
+sec_r_list = Array(64+1,sint)
+@for_range_opt(65)
+def _(i):
+    sec_r_list[i] = sint(1)
+
+def zerotest(sec_x):
+    sec_r = sec_a + sec_x
+    r = sec_r.reveal()
+    r_bit_list = r.bit_decompose()
+    r_bit_array = Array(64,regint)
+    
+    r_bit_array[:] = r_bit_list[:]
+
+    
+    sec_h_array = Array(1,sint) 
+    sec_h_array[0] = sint(0)
+    @for_range_opt(64)
+    def _(i):
+        sec_h_array[0] = sec_h_array[0] + sec_a_list[i] + r_bit_array[i] - 2*r_bit_array[i] *sec_a_list[i]
+
+    
+    sec_gamma = sec_r_list[0]*(1+sec_h_array[0])
+    gamma = sec_gamma.reveal()
+    sec_b_array = Array(1,sint)
+    sec_b_array[0] = poly_array[0]
+    @for_range_opt(32)
+    def _(i):
+        sec_b_array[0] = sec_b_array[0] + poly_array[i+1]*(gamma**(i+1))*sec_r_list[i+1]
+    sec_b_array[0] = sec_b_array[0]/263130836933693530167218012160000000
+    return sec_b_array[0]
+
+
+sketch_A_1 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_A_1[i][j] = sint.get_input_from(0)
+sketch_B_1 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_B_1[i][j] = sint.get_input_from(0)
+sketch_C_1 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_C_1[i][j] = sint.get_input_from(0)
+        
+sketch_D_1 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_D_1[i][j] = sint.get_input_from(0)
+
+
+sketch_A_2 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_A_2[i][j] = sint.get_input_from(0)
+sketch_B_2 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_B_2[i][j] = sint.get_input_from(0)
+sketch_C_2 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_C_2[i][j] = sint.get_input_from(0)
+        
+sketch_D_2 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_D_2[i][j] = sint.get_input_from(0)
+        
+sketch_A_3 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_A_3[i][j] = sint.get_input_from(0)
+sketch_B_3 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_B_3[i][j] = sint.get_input_from(0)
+sketch_C_3 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_C_3[i][j] = sint.get_input_from(0)
+        
+sketch_D_3 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_D_3[i][j] = sint.get_input_from(0)
+
+
+
+
+sketch_A_4 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_A_4[i][j] = sint.get_input_from(0)
+sketch_B_4 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_B_4[i][j] = sint.get_input_from(0)
+sketch_C_4 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_C_4[i][j] = sint.get_input_from(0)
+        
+sketch_D_4 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_D_4[i][j] = sint.get_input_from(0)
+
+
+sketch_A_5 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_A_5[i][j] = sint.get_input_from(0)
+sketch_B_5 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_B_5[i][j] = sint.get_input_from(0)
+sketch_C_5 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_C_5[i][j] = sint.get_input_from(0)
+        
+sketch_D_5 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_D_5[i][j] = sint.get_input_from(0)
+
+
+sketch_A_6 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_A_6[i][j] = sint.get_input_from(0)
+sketch_B_6 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_B_6[i][j] = sint.get_input_from(0)
+sketch_C_6 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_C_6[i][j] = sint.get_input_from(0)
+        
+sketch_D_6 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_D_6[i][j] = sint.get_input_from(0)
+
+
+sketch_A_7 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_A_7[i][j] = sint.get_input_from(0)
+sketch_B_7 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_B_7[i][j] = sint.get_input_from(0)
+sketch_C_7 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_C_7[i][j] = sint.get_input_from(0)
+        
+sketch_D_7 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_D_7[i][j] = sint.get_input_from(0)
+        
+        
+        
+sketch_A_8 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_A_8[i][j] = sint.get_input_from(0)
+sketch_B_8 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_B_8[i][j] = sint.get_input_from(0)
+sketch_C_8 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_C_8[i][j] = sint.get_input_from(0)
+        
+sketch_D_8 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_D_8[i][j] = sint.get_input_from(0)
+
+
+
+
+sketch_A_9 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_A_9[i][j] = sint.get_input_from(0)
+sketch_B_9 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_B_9[i][j] = sint.get_input_from(0)
+sketch_C_9 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_C_9[i][j] = sint.get_input_from(0)
+        
+sketch_D_9 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_D_9[i][j] = sint.get_input_from(0)
+
+
+
+
+sketch_A_10 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_A_10[i][j] = sint.get_input_from(0)
+sketch_B_10 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_B_10[i][j] = sint.get_input_from(0)
+sketch_C_10 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_C_10[i][j] = sint.get_input_from(0)
+        
+sketch_D_10 = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_D_10[i][j] = sint.get_input_from(0)
+        
+        
+        
+
+
+noise_array = Array(16, sint)
+@for_range_opt(16)
+def _(i):
+    noise_array[i] = sint.get_input_from(0)
+@for_range_opt(10-1)
+def _(i):
+    for j in range(16):
+        middle = noise_array[j] + sint.get_input_from(0)
+        noise_array[j] = middle
+
+sketch_A = Matrix(16384,25,sint)
+sketch_B = Matrix(16384,25,sint)
+sketch_C = Matrix(16384,25,sint)
+sketch_D = Matrix(16384,25,sint)
+
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_A[i][j] = sketch_A_1[i][j]+sketch_A_2[i][j]+sketch_A_3[i][j]+sketch_A_4[i][j]+sketch_A_5[i][j]+sketch_A_6[i][j]+sketch_A_7[i][j]+sketch_A_8[i][j]+sketch_A_9[i][j]+sketch_A_10[i][j]
+        sketch_B[i][j] = sketch_B_1[i][j]+sketch_B_2[i][j]+sketch_B_3[i][j]+sketch_B_4[i][j]+sketch_B_5[i][j]+sketch_B_6[i][j]+sketch_B_7[i][j]+sketch_B_8[i][j]+sketch_B_9[i][j]+sketch_B_10[i][j]
+        sketch_C[i][j] = sketch_C_1[i][j]+sketch_C_2[i][j]+sketch_C_3[i][j]+sketch_C_4[i][j]+sketch_C_5[i][j]+sketch_C_6[i][j]+sketch_C_7[i][j]+sketch_C_8[i][j]+sketch_C_9[i][j]+sketch_C_10[i][j]
+        sketch_D[i][j] = sketch_D_1[i][j]+sketch_D_2[i][j]+sketch_D_3[i][j]+sketch_D_4[i][j]+sketch_D_5[i][j]+sketch_D_6[i][j]+sketch_D_7[i][j]+sketch_D_8[i][j]+sketch_D_9[i][j]+sketch_D_10[i][j]
+
+
+@for_range_opt(16384)
+def _(i):
+    for j in range(25-1):
+        middle = sketch_C[i][24-j]+sketch_C[i][23-j]
+        sketch_C[i][23-j] = middle
+        
+sketch_E = Matrix(16384,25,sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_E[i][j] = 1-(sketch_C[i][j]==0)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25-1):
+        middle = sketch_E[i][j]-sketch_E[i][j+1]
+        sketch_E[i][j] = middle
+
+sketch_F = Matrix(16384,25,sint)
+D_S = Array(16384, sint)
+@for_range_opt(16384)
+def _(i):
+    for j in range(25):
+        sketch_F[i][j] = sketch_A[i][j]*sketch_A[i][j] - sketch_B[i][j]*sketch_C[i][j] +1-sketch_E[i][j]
+        middle = (sketch_F[i][j] == 0)
+        sketch_F[i][j] = middle
+    D_S[i] = sint(0)
+    for j in range(25):
+        middle = D_S[i]+sketch_F[i][j]*sketch_D[i][j]
+        D_S[i] = middle
+frequency_num = Array(16, sint)
+sketch_J = Array(16384, sint)
+@for_range_opt(16)
+def _(i):
+    frequency_num[i]=sint(0)
+middle_result = Array(16384,sint)
+@for_range_opt(16384)
+def _(i):
+    sketch_J[i] = 1-(D_S[i]==0)
+    frequency_num[0] = frequency_num[0]+sketch_J[i]
+
+@for_range_opt(14)
+def _(i):
+    for j in range(16384):
+        middle_result[j] = D_S[j]-i-1
+        sketch_J[j] = (middle_result[j]==0)
+    for j in range(16384):        
+        middle = frequency_num[i+1]+sketch_J[j]
+        frequency_num[i+1] = middle
+frequency_num[15]=sint(0)
+@for_range_opt(14)
+def _(i):
+    middle = frequency_num[15] + frequency_num[i+1]
+    break_point()
+    frequency_num[15] = middle
+middle = frequency_num[0] - frequency_num[15]
+frequency_num[15] = middle
+@for_range_opt(16)
+def _(i):
+    middle = frequency_num[i] + noise_array[i]
+    frequency_num[i] = middle
+print_ln("%s", frequency_num.reveal())
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
