@@ -11,11 +11,34 @@ In addition, we measure the running time and communication overload of our proto
 | MPC-FM(MPS)        | 4M integer arrays     |M            | Malicious          |
 | MPC-FM(MPS++)      | 4M integer arrays     |1            | Malicious          |
 | MPC-LiquidLegions  | 3 integer arrays      |2            | Honest but curious |
-## Accuracy Experiments
+## Experiments for Accuracy
 1. Run `pip install -r requirements.txt` to download required packages.
 
 2. If you want to test the accuracy of MPC-FM (using MPS sketch), please run `python python MPS.py`
 
    If you want to test the accuracy of MPC-FM (using MPS++ sketch), please run `python python MPS++.py`
 
-   If you want to test the accuracy of MPC-LiquidLegions, please run python `python LiquidLegions.py`
+   If you want to test the accuracy of MPC-LiquidLegions, please run python `python LiquidLegions.py` 
+## Experiments for computational costs
+1. Run `python python MPS.py` or `python python MPS++.py` to generate MPS or MPS++ sketch of each publisher
+2. Prepare requirements and compile fundamental protocols of SPDZ.
+
+```
+cd MP-SPDZ
+sudo apt-get install automake build-essential clang cmake git libboost-dev libboost-thread-dev libntl-dev libsodium-dev libssl-dev libtool m4 python3 texinfo yasm libgmp-dev libmpfr-dev libmpc-dev
+sh protocol_compile.sh
+```
+
+   Please make sure that CMake's version is at least 3.12
+3. Compile our MPC-FM protocol and set the number of computation providers (CPs).
+
+```
+./compile.py -F 64 MPC_FM
+Scripts/setup-online.sh <nCPs>
+```
+
+   Besides, we should also set the number of CPs in the `Scripts/run-common.sh`.
+4. Run our MPC-FM protocol and see the results.
+
+```Scripts/run-online.sh MPC_FM```
+   
