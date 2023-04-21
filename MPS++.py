@@ -239,9 +239,9 @@ if __name__ == "__main__":
 
 
     proportion = 0.1
-    # distribution = 'homogeneous'
+    distribution = 'homogeneous'
     num_provider = 10
-    distribution = 'heterogeneous'
+    #distribution = 'heterogeneous'
     m_bit = 14
     epsilon = 0.1
     delta = pow(10, -12)

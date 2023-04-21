@@ -231,9 +231,9 @@ def create_heterogeneous_frequency_set(num_sample):
 
 if __name__ == "__main__":
     proportion = 0.1
-    # distribution = 'homogeneous'
+    distribution = 'homogeneous'
     num_provider = 10
-    distribution = 'heterogeneous'
+    #distribution = 'heterogeneous'
     m_bit = 9
     epsilon = math.log(3)
     delta = pow(10, -9)

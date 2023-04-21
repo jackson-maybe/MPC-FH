@@ -75,7 +75,6 @@ def frequency_estimation_noise(count_array, decision_array, noise_array):
 
 
 def experiment_LiquidLegions(num_elements, provider_data_num,distribution,epsilon,delta,num_provider = 2):
-    com_column = []
     max_error_all = []
     shuffle_distance_all = []
     error_f_all = []
@@ -166,8 +165,8 @@ def create_heterogeneous_frequency_set(num_sample):
 
 proportion = 0.1
 num_provider = 10
-distribution = 'homogeneous'
-#distribution = 'heterogeneous'
+#distribution = 'homogeneous'
+distribution = 'heterogeneous'
 
 
 if __name__=="__main__":
