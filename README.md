@@ -8,8 +8,8 @@ In addition, we measure the running time and communication overload of our proto
 ## Methods
 | Protocol           | Sketch Structure      | Sensitivity | MPC Security Model |
 | :---------:        | :---------:           | :---------: | :------------:     |
-| MPC-FH(MPS)        | 4M integer arrays     |M            | Malicious          |
-| MPC-FH(MPS++)      | 4M integer arrays     |1            | Malicious          |
+| MPC-FH(MPS)        | 4$M$ integer arrays     |$M$            | Malicious          |
+| MPC-FH(MPS++)      | 4$M$ integer arrays     |1            | Malicious          |
 | MPC-LiquidLegions  | 3 integer arrays      |2            | Honest but curious |
 ## Experiments for Accuracy
 1. Run `pip install -r requirements.txt` to download the required packages.
