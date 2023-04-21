@@ -14,11 +14,11 @@ In addition, we measure the running time and communication overload of our proto
 ## Experiments for Accuracy
 1. Run `pip install -r requirements.txt` to download the required packages.
 
-2. If you want to test the accuracy of MPC-FH (using MPS sketch), please run `python MPS.py`
+2. If you want to test the accuracy of MPC-FH (using MPS sketch), please run `python MPS.py`.
 
-   If you want to test the accuracy of MPC-FH (using MPS++ sketch), please run `python MPS++.py`
+   If you want to test the accuracy of MPC-FH (using MPS++ sketch), please run `python MPS++.py`.
 
-   If you want to test the accuracy of MPC-LiquidLegions, please run `python LiquidLegions.py` 
+   If you want to test the accuracy of MPC-LiquidLegions, please run `python LiquidLegions.py`.
 ## Experiments for computational costs
 1. Run `python MPS.py` or `python MPS++.py` to generate the MPS or MPS++ sketch of each publisher.
 2. Prepare requirements and compile fundamental protocols of SPDZ.
