@@ -8,15 +8,15 @@ In addition, we measure the running time and communication overload of our proto
 ## Methods
 | Method             | Data Structure        | Sensitivity | MPC Security Model |
 | -----------        | -----------           | ----------- | --------------     |
-| MPC-FM(MPS)        | 4M integer arrays     |M            | Malicious          |
-| MPC-FM(MPS++)      | 4M integer arrays     |1            | Malicious          |
+| MPC-FH(MPS)        | 4M integer arrays     |M            | Malicious          |
+| MPC-FH(MPS++)      | 4M integer arrays     |1            | Malicious          |
 | MPC-LiquidLegions  | 3 integer arrays      |2            | Honest but curious |
 ## Experiments for Accuracy
 1. Run `pip install -r requirements.txt` to download the required packages.
 
-2. If you want to test the accuracy of MPC-FM (using MPS sketch), please run `python MPS.py`
+2. If you want to test the accuracy of MPC-FH (using MPS sketch), please run `python MPS.py`
 
-   If you want to test the accuracy of MPC-FM (using MPS++ sketch), please run `python MPS++.py`
+   If you want to test the accuracy of MPC-FH (using MPS++ sketch), please run `python MPS++.py`
 
    If you want to test the accuracy of MPC-LiquidLegions, please run `python LiquidLegions.py` 
 ## Experiments for computational costs
@@ -31,18 +31,18 @@ sh protocol_compile.sh
 
    Please make sure that CMake's version is at least 3.12
    
-3. Compile our MPC-FM protocol and set the number of computation providers (CPs).
+3. Compile our MPC-FH protocol and set the number of computation providers (CPs).
 
 ```
-./compile.py -F 64 MPC_FM
+./compile.py -F 64 MPC_FH
 Scripts/setup-online.sh <nCPs>
 ```
 
    Besides, we should also set the number of CPs in the `Scripts/run-common.sh`.
    
-4. Run our MPC-FM protocol and see the results.
+4. Run our MPC-FH protocol and see the results.
 
 ```
-Scripts/run-online.sh MPC_FM
+Scripts/run-online.sh MPC_FH
 ```
    

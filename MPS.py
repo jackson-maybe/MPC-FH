@@ -143,16 +143,16 @@ def experiment_MPS(num_elements, provider_data_num, distribution,epsilon,delta,
 
         distributed_sketch_A_df = pd.DataFrame(distributed_sketch_A)
         distributed_sketch_A_df.to_pickle(
-            f'./distributed_sketch_data/mbit={m_bit}_sketchtype={sketch_type}_proportion={proportion}_numprovider={num_provider}_{distribution}_numelement={num_elements}_distributed_sketchA_provider={provider_id}.pkl')
+            f'./MP-SPDZ/distributed_sketch_data/mbit={m_bit}_sketchtype={sketch_type}_proportion={proportion}_numprovider={num_provider}_{distribution}_numelement={num_elements}_distributed_sketchA_provider={provider_id}.pkl')
         distributed_sketch_B_df = pd.DataFrame(distributed_sketch_B)
         distributed_sketch_B_df.to_pickle(
-            f'./distributed_sketch_data/mbit={m_bit}_sketchtype={sketch_type}_proportion={proportion}_numprovider={num_provider}_{distribution}_numelement={num_elements}_distributed_sketchB_provider={provider_id}.pkl')
+            f'./MP-SPDZ/distributed_sketch_data/mbit={m_bit}_sketchtype={sketch_type}_proportion={proportion}_numprovider={num_provider}_{distribution}_numelement={num_elements}_distributed_sketchB_provider={provider_id}.pkl')
         distributed_sketch_C_df = pd.DataFrame(distributed_sketch_C)
         distributed_sketch_C_df.to_pickle(
-            f'./distributed_sketch_data/mbit={m_bit}_sketchtype={sketch_type}_proportion={proportion}_numprovider={num_provider}_{distribution}_numelement={num_elements}_distributed_sketchC_provider={provider_id}.pkl')
+            f'./MP-SPDZ/distributed_sketch_data/mbit={m_bit}_sketchtype={sketch_type}_proportion={proportion}_numprovider={num_provider}_{distribution}_numelement={num_elements}_distributed_sketchC_provider={provider_id}.pkl')
         distributed_sketch_D_df = pd.DataFrame(distributed_sketch_D)
         distributed_sketch_D_df.to_pickle(
-            f'./distributed_sketch_data/mbit={m_bit}_sketchtype={sketch_type}_proportion={proportion}_numprovider={num_provider}_{distribution}_numelement={num_elements}_distributed_sketchD_provider={provider_id}.pkl')
+            f'./MP-SPDZ/distributed_sketch_data/mbit={m_bit}_sketchtype={sketch_type}_proportion={proportion}_numprovider={num_provider}_{distribution}_numelement={num_elements}_distributed_sketchD_provider={provider_id}.pkl')
     result_fu = np.array([0 for iter_num in range(max_fre + 1)])
     result_f = [0 for iter_num in range(max_fre)]
     for row_num in range(np.array(sketch_C).shape[0]):
