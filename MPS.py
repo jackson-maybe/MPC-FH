@@ -234,7 +234,7 @@ if __name__ == "__main__":
     distribution = 'homogeneous'
     num_provider = 10
     #distribution = 'heterogeneous'
-    m_bit = 9
+    m_bit = 14
     epsilon = math.log(3)
     delta = pow(10, -9)
     time_consuming = []
