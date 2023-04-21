@@ -7,7 +7,7 @@ To evaluate the accuracy, we use the metric Shuffle Distance (SD) to measure the
 In addition, we measure the running time and communication overload of our protocol MPC-FH compared with the state-of-the-art protocol MPC-LiquidLegions.
 ## Methods
 | Protocol           | Sketch Structure      | Sensitivity | MPC Security Model |
-| -----------        | -----------           | ----------- | --------------     |
+| :---------:        | :---------:           | :---------: | :------------:     |
 | MPC-FH(MPS)        | 4M integer arrays     |M            | Malicious          |
 | MPC-FH(MPS++)      | 4M integer arrays     |1            | Malicious          |
 | MPC-LiquidLegions  | 3 integer arrays      |2            | Honest but curious |
