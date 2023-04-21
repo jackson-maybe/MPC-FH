@@ -29,7 +29,7 @@ sudo apt-get install automake build-essential clang cmake git libboost-dev libbo
 sh protocol_compile.sh
 ```
 
-      Please make sure that CMake's version is at least 3.12
+   Please make sure that CMake's version is at least 3.12
    
 3. Compile our MPC-FH protocol and set the number of computation providers (CPs).
 
