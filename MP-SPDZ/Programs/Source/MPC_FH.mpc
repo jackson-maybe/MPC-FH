@@ -188,6 +188,7 @@ def _(i):
         sketch_D_5[i][j] = sint.get_input_from(0)
 
 
+
 sketch_A_6 = Matrix(16384,25,sint)
 @for_range_opt(16384)
 def _(i):
@@ -305,9 +306,7 @@ sketch_D_10 = Matrix(16384,25,sint)
 @for_range_opt(16384)
 def _(i):
     for j in range(25):
-        sketch_D_10[i][j] = sint.get_input_from(0)
-        
-        
+        sketch_D_10[i][j] = sint.get_input_from(0)    
         
 
 
@@ -325,6 +324,11 @@ sketch_A = Matrix(16384,25,sint)
 sketch_B = Matrix(16384,25,sint)
 sketch_C = Matrix(16384,25,sint)
 sketch_D = Matrix(16384,25,sint)
+
+A_middle = Array(16384,sint)
+B_middle = Array(16384,sint)
+C_middle = Array(16384,sint)
+D_middle = Array(16384,sint)
 
 @for_range_opt(16384)
 def _(i):
@@ -352,18 +356,29 @@ def _(i):
         middle = sketch_E[i][j]-sketch_E[i][j+1]
         sketch_E[i][j] = middle
 
-sketch_F = Matrix(16384,25,sint)
+
+@for_range_opt(16384)
+def _(i):
+    A_middle[i] = sint(0)
+    B_middle[i] = sint(0)
+    C_middle[i] = sint(0)
+    D_middle[i] = sint(0)
+    for j in range(25):
+        middle = A_middle[i] + sketch_E[i][j] * sketch_A[i][j]
+        A_middle[i] = middle
+        middle = B_middle[i] + sketch_E[i][j] * sketch_B[i][j]
+        B_middle[i] = middle
+        middle = C_middle[i] + sketch_E[i][j] * sketch_C[i][j]
+        C_middle[i] = middle
+        middle = D_middle[i] + sketch_E[i][j] * sketch_D[i][j]
+        D_middle[i] = middle
+sketch_F = Array(16384,sint)
 D_S = Array(16384, sint)
 @for_range_opt(16384)
 def _(i):
-    for j in range(25):
-        sketch_F[i][j] = sketch_A[i][j]*sketch_A[i][j] - sketch_B[i][j]*sketch_C[i][j] +1-sketch_E[i][j]
-        middle = (sketch_F[i][j] == 0)
-        sketch_F[i][j] = middle
-    D_S[i] = sint(0)
-    for j in range(25):
-        middle = D_S[i]+sketch_F[i][j]*sketch_D[i][j]
-        D_S[i] = middle
+    sketch_F[i]= B_middle[i]*C_middle[i] - A_middle[i]*A_middle[i]
+    D_S[i] = (sketch_F[i] == 0)*D_middle[i]
+    
 frequency_num = Array(16, sint)
 sketch_J = Array(16384, sint)
 @for_range_opt(16)
@@ -396,29 +411,3 @@ def _(i):
     middle = frequency_num[i] + noise_array[i]
     frequency_num[i] = middle
 print_ln("%s", frequency_num.reveal())
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
