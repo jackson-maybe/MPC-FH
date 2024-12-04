@@ -6,10 +6,10 @@ To simulate the real scenario, we first generate varieties of publishers' ID dat
 To evaluate the accuracy, we use the metric Shuffle Distance (SD) to measure the difference between the estimated frequency histogram and the ground-truth frequency histogram. We use the metric because it represents the fraction of data whose frequency is wrong.
 In addition, we measure the running time and communication overload of our protocol MPC-FH compared with the state-of-the-art protocol MPC-LiquidLegions.
 ## Methods
-| Protocol            | Sensitivity      | MPC Security Model |
-| :---------:         | :---------:      | :------------:     |
-| MPC-FH(MPS)         |M                 | Malicious          |
-| MPC-LiquidLegions   |2                 | Honest but curious |
+| Protocol            | Computation Cost      | MPC Security Model |
+| :---------:         | :---------:           | :------------:     |
+| MPC-FH              |low                    | Malicious          |
+| MPC-LiquidLegions   |high                   | Honest but curious |
 ## Experiments for Accuracy
 1. Run `pip install -r requirements.txt` to download the required packages.
 
