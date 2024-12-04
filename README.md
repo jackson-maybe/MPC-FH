@@ -17,8 +17,7 @@ In addition, we measure the running time and communication overload of our proto
 
    If you want to test the accuracy of MPC-LiquidLegions, please run `python LiquidLegions.py`.
 ## Experiments for computational costs
-1. Run `python MPS.py` to generate the MPS sketch of each publisher.
-2. Prepare requirements and compile fundamental protocols of SPDZ.
+1. Prepare requirements and compile fundamental protocols of SPDZ.
 
 ```
 cd MP-SPDZ
@@ -28,7 +27,7 @@ sh protocol_compile.sh
 
    Please make sure that CMake's version is at least 3.12 .
    
-3. Compile our MPC-FH protocol and set the number of computation providers (CPs).
+2. Compile our MPC-FH protocol and set the number of computation providers (CPs).
 
 ```
 ./compile.py -F 64 MPC_FH
@@ -37,7 +36,7 @@ Scripts/setup-online.sh <nCPs>
 
    Besides, we should also set the number of CPs in the `Scripts/run-common.sh`.
    
-4. Run our MPC-FH protocol.
+3. Run our MPC-FH protocol.
 
 ```
 Scripts/run-online.sh MPC_FH
