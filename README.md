@@ -8,8 +8,8 @@ In addition, we measure the running time and communication overload of our proto
 ## Methods
 | Protocol            | Computation Cost      | MPC Security Model |
 | :---------:         | :---------:           | :------------:     |
-| MPC-FH              |low                    | Malicious          |
-| MPC-LiquidLegions   |high                   | Honest but curious |
+| MPC-FH              |Low                    | Malicious          |
+| MPC-LiquidLegions   |High                   | Honest-but-Curious |
 ## Experiments for Accuracy
 1. Run `pip install -r requirements.txt` to download the required packages.
 
